@@ -1,0 +1,20 @@
+{% extends "expenses/base.html" %}
+
+{% block content %}
+<h2>Calculate the Expenses</h2>
+
+<!-- Show the form to input the bill amounts and number of people -->
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Calculate</button>
+</form>
+
+<!-- Display the result if the form was submitted and valid -->
+{% if result %}
+    <h3>Results:</h3>
+    <p>Total expenses: ${{ total }}</p>
+    <p>Number of people: {{ num_people }}</p>
+    <p>Each person pays: ${{ result }}</p>
+{% endif %}
+{% endblock %}

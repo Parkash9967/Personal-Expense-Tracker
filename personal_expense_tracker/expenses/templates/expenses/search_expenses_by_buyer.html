@@ -1,0 +1,17 @@
+{% extends "expenses/base.html" %}
+
+{% block content %}
+<h2>Expenses by Buyer: "{{ name }}"</h2>
+
+<p>Total amount bought by "{{ name }}": ${{ total_amount }}</p>
+
+<ul>
+    {% for expense in expenses %}
+        <li>
+            {{ expense.description }} - {{ expense.category }} - ${{ expense.amount }}
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'index' %}">Back to Expense List</a>
+{% endblock %}

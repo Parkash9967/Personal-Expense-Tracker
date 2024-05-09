@@ -1,0 +1,24 @@
+{% extends "expenses/base.html" %}
+
+{% block content %}
+<h2>Expense List</h2>
+
+<form method="GET" action="{% url 'search_expenses_by_buyer' %}">
+    <input type="text" name="name" placeholder="Search by buyer's name" value="{{ request.GET.name|default_if_none:'' }}">
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {% for expense in expenses %}
+        <li>
+            {{ expense.name }} {{ expense.description }} - {{ expense.category }} - ${{ expense.amount }}
+         
+            <form method="POST" action="{% url 'delete_expense' expense.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" style="color: rgb(252, 251, 251);">Delete</button>
+            </form>
+       
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

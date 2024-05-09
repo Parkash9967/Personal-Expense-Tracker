@@ -1,0 +1,12 @@
+{% extends "expenses/base.html" %}
+
+{% block content %}
+<h2>Expense Summary</h2>
+<ul>
+    <!-- Iterate over the dictionary passed from the view -->
+    {% for category, total in summary.items %}
+        <li>{{ category }}: ${{ total }}</li>
+    {% endfor %}
+    <p>Total of all expenses: ${{ total_expenses }}</p>
+</ul>
+{% endblock %}
