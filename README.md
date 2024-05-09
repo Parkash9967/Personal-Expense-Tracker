@@ -39,3 +39,16 @@ personal_expense_tracker/
 │       └── style.css
 ├── db.sqlite3  # SQLite database
 └── manage.py
+
+
+
+
+Usage
+* To add a new expense, click "Add Expense" on the home page, fill in the form, and submit.
+* To view all expenses, visit the home page.
+* To calculate the total expenses by buyer's name, use the search form on the home page.
+* To view an expense summary, visit "Expense Summary" from the navigation menu.
+* To delete an expense, click the "Delete" button next to the corresponding expense in the list.
+
+
+
